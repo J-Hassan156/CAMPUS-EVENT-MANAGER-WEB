@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="STYLE.CSS">
+  <title>Todo App</title>
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title">✓ TODO</h1>
+        <p class="tagline-done">DONE</p>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <button class="nav-btn active" data-tab="home">
+          <span class="nav-icon">📋</span>
+          <span class="nav-text">Home</span>
+        </button>
+        <button class="nav-btn" data-tab="today">
+          <span class="nav-icon">📅</span>
+          <span class="nav-text">Today</span>
+        </button>
+        <button class="nav-btn" data-tab="completed">
+          <span class="nav-icon">✅</span>
+          <span class="nav-text">Completed</span>
+        </button>
+        <button class="nav-btn" data-tab="dashboard">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">Dashboard</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p class="footer-text">Stay organized, stay productive</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <h1 class="app-title">TODO APP</h1>
+      </header>
+
+      <!-- Interface 1: Home -->
+      <section id="home" class="interface active">
+        <div class="input-section">
+          <h2>Add New Task</h2>
+          <div class="input-group">
+            <input id="todo-input" type="text" placeholder="What do you need to do?">
+            <input id="todo-date" type="date">
+            <button class='btn-add' onclick="addTodo();">+ Add</button>
+          </div>
+        </div>
+        <div class="todo-container" id="home-todos"></div>
+      </section>
+
+      <!-- Interface 2: Today's Tasks -->
+      <section id="today" class="interface">
+        <h2>Today's Tasks</h2>
+        <div class="todo-container" id="today-todos"></div>
+      </section>
+
+      <!-- Interface 3: Completed Tasks -->
+      <section id="completed" class="interface">
+        <h2>Completed Tasks</h2>
+        <div class="todo-container" id="completed-todos"></div>
+      </section>
+
+      <!-- Interface 4: Dashboard -->
+      <section id="dashboard" class="interface">
+        <h2>Dashboard</h2>
+        <div class="dashboard-grid">
+          <div class="stat-card large">
+            <div class="stat-value">
+              <div class="stat-number" id="total-tasks">0</div>
+              <div class="stat-label">Total Tasks</div>
+            </div>
+          </div>
+          <div class="stat-card large">
+            <div class="stat-value">
+              <div class="stat-number" id="completed-tasks">0</div>
+              <div class="stat-label">Completed</div>
+            </div>
+          </div>
+          <div class="stat-card large">
+            <div class="stat-value">
+              <div class="stat-number" id="pending-tasks">0</div>
+              <div class="stat-label">Pending</div>
+            </div>
+          </div>
+          <div class="stat-card large">
+            <div class="stat-value">
+              <div class="stat-number" id="completion-rate">0%</div>
+              <div class="stat-label">Completion Rate</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Chatbot Widget -->
+  <div class="chatbot-container hidden" id="chatbot-container">
+    <div class="chatbot-header">
+      <div class="robot-icon">🤖</div>
+      <span class="chatbot-title">Assistant</span>
+      <button class="close-chatbot" onclick="toggleChatbot()">✕</button>
+    </div>
+    <div class="chatbot-messages" id="chatbot-messages"></div>
+    <div class="chatbot-input-section">
+      <input type="text" id="chatbot-input" placeholder="Ask me something...">
+      <button onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+
+  <button class="chatbot-toggle" id="chatbot-toggle" onclick="toggleChatbot()">
+    <span class="robot-bubble">🤖</span>
+  </button>
+
+  <script src="SCRIPT.JSON"></script>
+</body>
+</html>
